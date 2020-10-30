@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+<style type="text/css">
+
+
+  body {
+background: url("/static/images/c1.png") 50% 0 no-repeat fixed;
+ background-size: 100% 100%;
+}
+.button {
+  background-color: #2E8B57;
+  border: none;
+  color: #90EE90;
+  padding: 20px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  margin: 700px 900px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body >
+
+<button id="id1" class="button"  ><span>vaccation</span></button>
+
+
+
+<script type="text/javascript">
+    document.getElementById("id1").onclick = function () {
+        location.href = "/sgapp/vacation/";
+    };
+</script>
+&nbsp;</body>
+</html>

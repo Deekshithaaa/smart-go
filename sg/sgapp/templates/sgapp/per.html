@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <style>
+  input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 25%;
+  background-color:#000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #808080;
+}
+
+  html {
+  background-color: #C0C0C0;
+  font-size: 30px;
+  font-family:Franklin Gothic Medium;
+  line-height: 45px;
+}
+  div {
+  color:#C0C0C0;
+  background-color: #202020;
+  font-family : Times New Roman;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 20px;
+}
+
+ .option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background:  white;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background:black;
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+  </style>
+    <title>Title</title>
+
+</head>
+<body>
+
+<form action="/sgapp/sin/" method="POST">{% csrf_token %}
+  <h1 style="color:black" align="center">Choose Your Interests</h1>
+  <div>
+  Enter user_name:<input type="text" id="pername" name="pername" >
+  </div>
+  <div>
+  <p>1.Are you currently married?</p>
+  <input type="radio" class="option-input radio" id="per11" name="per1" value="YES">
+  <label for="per11">YES</label><br>
+  <input type="radio" class="option-input radio" id="per12" name="per1" value="NO">
+  <label for="per12">NO</label><br>
+</div>
+
+
+<div>
+    <p>2.Your preference...</p>
+  <input type="radio" class="option-input radio" id="per21" name="per2" value="21">
+  <label for="per21">Food</label><br>
+  <input type="radio" class="option-input radio" id="per22" name="per2" value="22" >
+  <label for="per22">Atmosphere</label><br>
+    <input type="radio" class="option-input radio" id="per23" name="per2" value="23">
+  <label for="per23">Luxary</label><br>
+    <input type="radio" class="option-input radio"  id="per24" name="per2" value="24">
+  <label for="per24">Adventerous</label><br>
+
+</div>
+
+
+<div>
+    <p>3.What is your annual income?</p>
+  <input type="radio" class="option-input radio"id="per31" name="per3" value="31" >
+  <label for="per31">Less than $25000</label><br>
+  <input type="radio" class="option-input radio"id="per32" name="per3" value="32" >
+  <label for="per32">$25000 – $49999</label><br>
+    <input type="radio" class="option-input radio"id="per33" name="per3" value="33">
+  <label for="per33">$75000 – $99999</label><br>
+    <input type="radio"class="option-input radio" id="per34" name="per3" value="34">
+  <label for="per34">$100000+</label><br>
+</div>
+
+
+
+<div>
+    <p>4.With the experience you have had in your current relationship, what are the chances that you would eventually break up with your partner? (On a scale of 1 to 10, 1 being the lowest chance)</p>
+  <input type="text" id="per41" name="per4" maxlength="5">
+</div>
+
+
+
+<div>
+    <p>5.What is the most important quality in your partner, you love the most?</p>
+  <input type="radio" class="option-input radio" id="per51" name="per5" value="Good looks">
+  <label for="per51">Good looks</label><br>
+  <input type="radio" class="option-input radio" id="per52" name="per5" value="Shared interests">
+  <label for="per52">Shared interests</label><br>
+    <input type="radio" class="option-input radio"  id="per53" name="per5" value="Intelligence">
+  <label for="per53">Intelligence</label><br>
+    <input type="radio" class="option-input radio"  id="per54" name="per5" value="Humor">
+  <label for="per54">Humor</label><br>
+
+</div>
+
+<div>
+    <p>6.How many children do you have?</p>
+  <input type="radio" class="option-input radio" id="per61" name="per6" value="0">
+  <label for="per61">0</label><br>
+  <input type="radio" class="option-input radio" id="per62" name="per6" value="1" >
+  <label for="per62">1</label><br>
+    <input type="radio" class="option-input radio" id="per63" name="per6" value="2">
+  <label for="per63">2</label><br>
+    <input type="radio" class="option-input radio"  id="per64" name="per6" value="3 or 3+">
+  <label for="per64">3 or 3+</label><br>
+
+</div>
+
+<div>
+
+    <p>7.Do you make it a point to gift your partner on Valentines, or birthdays or anniversaries?</p>
+  <input type="radio" class="option-input radio"   id="per71" name="per7" value="YES">
+  <label for="per71">YES</label><br>
+  <input type="radio" class="option-input radio" id="per72" name="per7" value="NO">
+  <label for="per72">NO</label><br>
+    <input type="radio" class="option-input radio" id="per73" name="per7" value="Sometimes">
+  <label for="per73">Sometimes</label><br>
+
+</div>
+
+
+<div>
+
+    <p>8.What gift do you think your partner likes the most?</p>
+  <input type="radio" class="option-input radio" id="per81" name="per8" value="Flowers">
+  <label for="per81">Flowers</label><br>
+  <input type="radio" class="option-input radio" id="per82" name="per8" value="Candy" >
+  <label for="per82">Candy</label><br>
+    <input type="radio" class="option-input radio" id="per83" name="per8" value="Romantic Dinners">
+  <label for="per83">Dinners</label><br>
+    <input type="radio" class="option-input radio" id="per84" name="per8" value="Jewelry">
+  <label for="per84">Jewelry</label><br>
+    <input type="radio" class="option-input radio"  id="per85" name="per8" value="others">
+  <label for="per85">others</label><br>
+
+</div>
+
+<div>
+  <p>9.How many days/months in advance are you planning for a family holiday?</p>
+  <input type="radio" class="option-input radio" id="per91" name="per9" value="<15days">
+  <label for="per91"><15days</label><br>
+    <input type="radio" class="option-input radio" id="per92" name="per9" >
+  <label for="per92">15 days - 1 month</label><br>
+    <input type="radio" class="option-input radio" id="per93" name="per9" >
+  <label for="per93">1 month - 3 months</label><br>
+    <input type="radio" class="option-input radio" id="per94" name="per9" >
+  <label for="per94">>3 months </label><br>
+</div>
+
+  <input type="submit" style="margin-left: 35%"/>
+</form>
+</body>
+</html>

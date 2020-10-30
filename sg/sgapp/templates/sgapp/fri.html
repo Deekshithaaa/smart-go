@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <style>
+  input[type=text], select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 25%;
+  background-color:#000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #808080;
+}
+
+  html {
+  background-color: #C0C0C0;
+  font-size: 30px;
+  font-family:Franklin Gothic Medium;
+  line-height: 45px;
+}
+  div {
+  color:#C0C0C0;
+  background-color: #202020;
+  font-family : Times New Roman;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 20px;
+}
+
+ .option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.15s ease-out 0s;
+  background:  white;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background:black;
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+  </style>
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/sgapp/vacdet/" method="post">{% csrf_token %}
+  <h1 style="color:black" align="center">Choose Your Interests</h1>
+  <div>
+  Enter your user_name_______<input type="text" id="naf" name="naf" >
+  </div>
+  <div >
+     <p>1.Where is your favourite vacation destination?</p>
+  <input type="radio" class="option-input radio" id="fri11" name="fri1" value="11" >
+  <label for="fri11" >India</label><br>
+    <input type="radio" class="option-input radio" id="fri12" name="fri1" value="12" >
+  <label for="fri12" >Abroad</label><br>
+
+  </div>
+  <div  >
+    <p>2.What is your family annual vacation budget?</p>
+  <input type="radio" class="option-input radio" id="fri21" name="fri2" value="less than Rs.50000" >
+  <label for="fri21">less than Rs.50000</label><br>
+    <input type="radio"  class="option-input radio" id="fri22" name="fri2" value="Between Rs.50,000 and Rs.100,000" >
+  <label for="fri22">Between Rs.50,000 and Rs.100,000</label><br>
+    <input type="radio" class="option-input radio" id="fri23" name="fri2" value="More than Rs.100,000">
+  <label for="fri23">More than Rs.100,000</label><br>
+</div>
+<div >
+    <p>3.Which is your favourite type of holiday experience?</p>
+  <input type="radio" class="option-input radio" id="fri41" name="fri4" value="41">
+  <label for="fri41">Beachside</label><br>
+    <input type="radio" class="option-input radio"  id="fri42" name="fri4" value="42" >
+  <label for="fri42">Mountain View</label><br>
+    <input type="radio" class="option-input radio" id="fri43" name="fri4" value="43" >
+  <label for="fri43">Historical and must see experiences</label><br>
+    <input type="radio" class="option-input radio" id="fri44" name="fri4" value="44">
+  <label for="fri44">Adventerous places</label><br>
+</div>
+<div >
+    <p> 4.What type of accomodation do your prefer most?</p>
+  <input type="radio" class="option-input radio" id="fri51" name="fri5" value="51" >
+  <label for="fri51">Hotel/resort room (3 star and above)</label><br>
+    <input type="radio" class="option-input radio" id="fri52" name="fri5" value="52">
+  <label for="fri52">Home stay (where one or multiple rooms are rented to tourist/guest by residing family)</label><br>
+    <input type="radio" class="option-input radio" id="fri53" name="fri5" value="53">
+  <label for="fri53">Private residences (Second homes)</label><br>
+</div>
+<div >
+    <p> 5.Which one of the following vacations package you would prefer?</p>
+  <input type="radio" class="option-input radio" id="fri61" name="fri6" value="All inclusive package">
+  <label for="fri61">All inclusive package (accommodation, food, etc)</label><br>
+    <input type="radio" class="option-input radio" id="fri62" name="fri6" value="Stripped down package" >
+  <label for="fri62">Stripped down package (you pay what you use)</label><br>
+</div>
+<div class="radios">
+     <p> 6.How much do you prefer to spend on accommodation per person per night?</p>
+  <input type="radio" class="option-input radio" id="fri71" name="fri7" value="less than Rs.1000/-">
+  <label for="fri71">less than Rs.1000/-</label><br>
+    <input type="radio" class="option-input radio" id="fri72" name="fri7" value="Between Rs.1000/- and Rs.2500/-">
+  <label for="fri72">>Between Rs.1000/- and Rs.2500/-</label><br>
+    <input type="radio" class="option-input radio" id="fri73" name="fri7" value="Between Rs.2500/- and Rs.5000/-">
+  <label for="fri73">Between Rs.2500/- and Rs.5000/-</label><br>
+    <input type="radio" class="option-input radio" id="fri74" name="fri7" value="Above Rs.5000/-" >
+  <label for="fri74">Above Rs.5000/-</label><br>
+</div>
+
+<div class="radios">
+    <p>7.What generally is your ideal duration of stay at any destination in a single trip?</p>
+  <input type="radio" class="option-input radio" id="fri81" name="fri8" value="One day/night">
+  <label for="fri81">One day/night</label><br>
+    <input type="radio" class="option-input radio" id="fri82" name="fri8" value="Two nights">
+  <label for="fri82">Two nights</label><br>
+    <input type="radio" class="option-input radio" id="fri83" name="fri8" value="Three or more nights">
+  <label for="fri83">Three or more nights</label><br>
+
+</div>
+<div class="radios">
+    <p>8.How many days/months in advance are you planning for a family holiday?</p>
+  <input type="radio" class="option-input radio" id="fri91" name="fri9" value="<15days">
+  <label for="fri91"><15days</label><br>
+    <input type="radio" class="option-input radio" id="fri92" name="fri9" value="15 days - 1 month">
+  <label for="fri92">15 days - 1 month</label><br>
+    <input type="radio" class="option-input radio"  id="fri93" name="fri9" value="1 month - 3 months">
+  <label for="fri93">1 month - 3 months</label><br>
+    <input type="radio" class="option-input radio" id="fri94" name="fri9" value=">3 months">
+  <label for="fri94">>3 months </label><br>
+
+</div>
+<div class="radios">
+    <p>9.What are your worries while planning a family holiday in a offbeat destination?</p>
+  <input type="radio" class="option-input radio" id="fri101" name="fri_10" value="Travel arrangement" >
+  <label for="fri101">Travel arrangement</label><br>
+    <input type="radio" class="option-input radio" id="fri102" name="fri_10" value="Clean and Decent Accommodation">
+  <label for="fri102">Clean and Decent Accommodation</label><br>
+    <input type="radio" class="option-input radio" id="fri103" name="fri_10" value="Food" >
+  <label for="fri103">Food</label><br>
+</div>
+<div class="radios">
+
+    <p>10.Will you enjoy traveling to multiple destination in a single trip, if they are closer to each other?</p>
+  <input type="radio" class="option-input radio" id="fri111" name="fri_11" value="Yes">
+  <label for="fri111">Yes</label><br>
+    <input type="radio" class="option-input radio" id="fri112" name="fri_11" value="No">
+  <label for="fri112">>No, i prefer single destination per trip</label><br>
+
+</div>
+
+
+
+    <input type="submit" style="margin-left: 35%"/>
+
+
+
+
+</form>
+</body>
+</html>
